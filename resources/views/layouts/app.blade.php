@@ -18,17 +18,19 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('build/assets/style-7BTVkDGJ.css') }}">
-    
+
     <style>
         .bg-light .nav-link {
-            color: #000000; /* Change text color */
+            color: #000000;
+            /* Change text color */
         }
-    
+
         .bg-light .nav-link:hover {
-            background-color: #ffffff; /* Change background color on hover */
+            background-color: #ffffff;
+            /* Change background color on hover */
         }
     </style>
-    
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/sweet_alert.js'])
@@ -115,48 +117,53 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-auto bg-light sticky-top">
-                    <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-                        <a href="/" class="d-block p-3 link-dark text-decoration-none" title=""
-                            data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-                            <i class="fa-solid fa-clock-rotate-left"></i>
-                        </a>
-                        <ul
-                            class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
-                            <li class="nav-item">
-                                <a href="{{ route('index') }}" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" data-bs-original-title="Home">
-                                    <i class="fa-solid fa-house"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('mostliked')}}" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" data-bs-original-title="Dashboard">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('history') }}" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" data-bs-original-title="Orders">
-                                    <i class="fa-solid fa-clock-rotate-left"></i>
-                                </a>
-                            </li>
-                            <li>
-                                {{-- <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
+        @if (Auth::check())
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-auto bg-light sticky-top">
+                        <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                            <a href="/" class="d-block p-3 link-dark text-decoration-none" title=""
+                                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </a>
+                            <ul
+                                class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                                <li class="nav-item">
+                                    <a href="{{ route('index') }}" class="nav-link py-3 px-2" title=""
+                                        data-bs-toggle="tooltip" data-bs-placement="right"
+                                        data-bs-original-title="Home">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('mostliked') }}" class="nav-link py-3 px-2" title=""
+                                        data-bs-toggle="tooltip" data-bs-placement="right"
+                                        data-bs-original-title="Dashboard">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('history') }}" class="nav-link py-3 px-2" title=""
+                                        data-bs-toggle="tooltip" data-bs-placement="right"
+                                        data-bs-original-title="Orders">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    {{-- <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
                                     data-bs-placement="right" data-bs-original-title="Products">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a> --}}
-                            </li>
-                            <li>
-                                <a href="{{ route('editUser') }}" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" data-bs-original-title="Customers">
-                                    <i class="fa-solid fa-user-pen"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        {{-- <div class="dropdown">
+                                </li>
+                                <li>
+                                    <a href="{{ route('editUser') }}" class="nav-link py-3 px-2" title=""
+                                        data-bs-toggle="tooltip" data-bs-placement="right"
+                                        data-bs-original-title="Customers">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            {{-- <div class="dropdown">
                             <a href="#"
                                 class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
                                 id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
@@ -168,57 +175,59 @@
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                             </ul>
                         </div> --}}
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm p-3 min-vh-100">
-                    <!-- content -->
-                    <header>
-                        <div class="container-fluid" style="background-color: #B4D4FF;">
-                            <div class="row">
-                                <div class="col mt-5 pt-4 pb-0 md-4 mx-auto">
-                                    <!-- Add your header content here -->
-                                    @section('header')
-                                        @if (isset($header))
-                                            <h4 class="">Search result @yield('header')</h4>
-                                        @else
-                                            {{-- <h4 class="text-center">Home</h4> --}}
-                                        @endif
-                                    @show
+                    <div class="col-sm p-3 min-vh-100">
+                        <!-- content -->
+                        <header>
+                            <div class="container-fluid" style="background-color: #B4D4FF;">
+                                <div class="row">
+                                    <div class="col mt-5 pt-4 pb-0 md-4 mx-auto">
+                                        <!-- Add your header content here -->
+                                        @section('header')
+                                            @if (isset($header))
+                                                <h4 class="">Search result @yield('header')</h4>
+                                            @else
+                                                {{-- <h4 class="text-center">Home</h4> --}}
+                                            @endif
+                                        @show
+                                    </div>
                                 </div>
                             </div>
+                        </header>
+
+                        <!-- Content Section -->
+                        <div class="content-section overflow-x-hidden mb-50" style="background-color:#B4D4FF;">
+                            @yield('content')
                         </div>
-                    </header>
-
-                    <!-- Content Section -->
-                    <div class="content-section overflow-x-hidden mb-50" style="background-color:#B4D4FF;">
-                        @yield('content')
-                    </div>
-
-
-                    <!-- Footer Section -->
-                    <footer>
-                        <div class="container-fluid" style="background-color: #B4D4FF;">
-                            <div class="row">
-                                <div class="col mt-0 md-4 mx-auto">
-                                    <!-- Add your footer content here -->
-                                    @section('footer')
-                                        @if (isset($header))
-                                            {{-- <h4 class="text-center">Search result @yield('header')</h4> --}}
-                                            <p class="text-center">showing total 40 results of @yield('header').</p>
-                                        @else
-                                            {{-- <h4 class="text-center">footer</h4> --}}
-                                        @endif
-                                    @show
+                        
+                        <!-- Footer Section -->
+                        <footer>
+                            <div class="container-fluid" style="background-color: #B4D4FF;">
+                                <div class="row">
+                                    <div class="col mt-0 md-4 mx-auto">
+                                        <!-- Add your footer content here -->
+                                        @section('footer')
+                                            @if (isset($header))
+                                                {{-- <h4 class="text-center">Search result @yield('header')</h4> --}}
+                                                <p class="text-center">showing total 40 results of @yield('header').</p>
+                                            @else
+                                                {{-- <h4 class="text-center">footer</h4> --}}
+                                            @endif
+                                        @show
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </footer>
+                        </footer>
 
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Header Section -->
+        @else
+            <div class="content-section overflow-x-hidden mb-50 mt-5" style="background-color:#B4D4FF;">
+                @yield('content')
+            </div>
+        @endif
 
     </div>
 </body>
