@@ -1,0 +1,36 @@
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 24px rgba(0, 0, 0, 0.1), 0 32px 48px rgba(0, 0, 0, 0.3);
+  border: 2px solid #436850;
+  /* Specify the border properties */
+}
+
+.card .img-fluid {
+  border-radius: 5px;
+}
+
+.side-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 24px rgba(0, 0, 0, 0.1), 0 32px 48px rgba(0, 0, 0, 0.3);
+  border: 2px solid #436850;
+  /* Specify the border properties */
+}
+.card .img-fluid{
+  border-radius: 5px;
+}
+
+/* Default height for small screens */
+.embed-responsive-item {
+  height: 40.25vw;
+  width: 100%;
+  /* 16:9 aspect ratio */
+}
+
+/* Set a specific height for larger screens (lg and xl) */
+@media (min-width: 992px) {
+  .embed-responsive-item {
+      height: 500px;
+      width: 100%;
+      /* Adjust the height as needed */
+  }
+}
